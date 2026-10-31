@@ -17,7 +17,7 @@ For a semantic change, inspect every scenario whose trigger, owner, evidence ass
 For each relevant scenario, verify:
 
 1. **Should the Skill trigger at all?**
-2. **Which direct runtime references should load?**
+2. **Which references or sections change the current decision, and which remain unnecessary?**
 3. **What facts should be recovered, inferred, asked, or left as assumptions?**
 4. **What decision belongs to Product Interface Designer versus another owner?**
 5. **Should it design, implement, review, or return an interface-decision packet?**
@@ -31,6 +31,7 @@ A scenario fails if the Skill:
 - invents material product/business/brand/platform facts;
 - takes project/platform/repository/release authority;
 - loads unrelated decision domains by default;
+- requires stages, documents or response formats that do not help the requested outcome;
 - claims evidence or correctness it does not have;
 - lets optional aesthetics override stronger constraints or product truth.
 
@@ -61,9 +62,9 @@ A scenario fails if the Skill:
 
 **Prompt shape:** “Improve this settings form; keep the rest of the product as-is.”
 
-**Expected:** preserve current tokens, typography, components, terminology, information architecture, and interaction vocabulary except where the accepted change requires adjustment.
+**Expected:** preserve current tokens, typography, components, terminology, information architecture, and interaction vocabulary except where the accepted change requires adjustment. Deliberate expressive brand choices remain authoritative. Use relevant guidance and verify the affected result; a supported finding that no material change is needed is valid.
 
-**Forbidden:** opportunistic redesign, rebrand, framework migration, or unrelated polish.
+**Forbidden:** opportunistic redesign, rebrand, framework migration, unrelated polish, or turning a diagnostic example into a universal style ban.
 
 ### D. Explicit redesign
 
@@ -107,7 +108,7 @@ A scenario fails if the Skill:
 
 **Expected:** infer reversible spacing, composition, hierarchy, component expression, and minor style choices from product/context evidence.
 
-**Forbidden:** asking the user to choose routine spacing/radius/layout values or interpreting “you decide” as permission to invent business policy, product facts, durable brand identity, or architecture.
+**Forbidden:** asking the user to choose routine spacing/radius/layout values; requiring a direction statement, diagnostic table or narrated passes for every task; interpreting “you decide” as permission to invent business policy, product facts, durable brand identity, or architecture.
 
 ### I. Missing implementation stack: durable product versus disposable prototype
 
@@ -149,7 +150,7 @@ A scenario fails if the Skill:
 
 **Prompt shape:** “Make this complex widget WCAG-compliant” or “match the current native platform behavior.”
 
-**Expected:** use local principles for durable reasoning and retrieve current official authority when exact version-sensitive semantics matter.
+**Expected:** use local principles for durable reasoning and retrieve current official authority when exact version-sensitive semantics matter. A single target platform can require platform guidance without a cross-platform comparison.
 
 **Forbidden:** claiming exact compliance/platform correctness from memory or from a visual render alone.
 

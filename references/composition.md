@@ -1,147 +1,62 @@
 # Composition and Authority
 
-Product Interface Designer is a consulted interface-decision specialist. When another Skill owns surrounding non-interface work or decisions, that caller keeps whatever authority it already owns. Invoking Product Interface Designer never creates a nested Master.
+Product Interface Designer is the interface specialist within the caller's existing authority. Consultation does not create another project Master, widen mutation scope or transfer implementation, integration or release authority.
 
 ## Contents
 
-[Composed flow](#1-composed-flow) · [Caller context](#2-minimum-caller-context) · [Ownership](#3-ownership-when-composed) · [Decision packet](#4-interface-decision-packet) · [Return/escalation](#5-return-control-and-escalate-to-the-right-owner) · [Shared concerns](#6-shared-concerns) · [Standalone/durable state](#7-standalone-use-and-durable-state) · [Invocation neutrality](#8-invocation-neutrality)
+[Consultation](#bounded-consultation) · [Ownership](#decision-ownership) · [Packet](#interface-decision-packet) · [Reuse](#reuse-and-re-entry) · [Standalone/state](#standalone-use-and-durable-state)
 
-## 1. Composed flow
+## Bounded consultation
 
-Use this control shape when Product Interface Designer is consulted by another Skill:
+The caller supplies or identifies only context that changes the interface decision: accepted outcome/question, relevant product/design truth, target platform/locale, authority boundaries and source/rendered evidence. Full project history or a duplicate brief is unnecessary. Recover a missing fact from available authority; return an unresolved material product/policy/architecture decision to its owner.
 
-```text
-CALLER retains its owning workflow + authority
-  -> passes only decision-relevant interface context
-  -> Product Interface Designer makes/reviews the interface decision
-  -> returns the interface-decision packet
-  -> caller resumes its owning workflow
-  -> implementation/integration remains with the existing implementation/platform/project owner when applicable
-  -> if material rendered/interface review is needed:
-         Product Interface Designer reviews the result
-         -> returns findings/intent corrections
-         -> caller resumes its owning workflow
-```
+Make or review the interface decision, then return the bounded result and control. In a consultation, write capability does not authorize implementation. A separately assigned implementation role can use the decision, but remains a distinct responsibility within the established owner's scope.
 
-Product Interface Designer must not:
-
-- reprioritize the caller's project or create a competing roadmap;
-- widen repository/mutation scope;
-- select another owner's implementation mechanism merely to enforce a visual preference;
-- take over CI, integration, release, deployment, or continuity;
-- turn an unresolved product decision into an assumed UI requirement.
-
-Composition changes decision ownership only where explicitly stated below. It does not transfer the caller's authority envelope.
-
-## 2. Minimum caller context
-
-Pass the smallest context that can materially change the interface decision. A caller normally provides or identifies:
-
-| Context | Minimum useful content |
-|---|---|
-| accepted outcome | the user/product task and the interface decision or review requested |
-| authoritative product truth | relevant capabilities, business rules, terminology, existing design-system/interface truth, and constraints that must survive |
-| target context | target platform/surface and active language/direction/locale when material |
-| ownership boundary | which non-interface authority the caller retains and, when execution exists, which owner retains implementation, repository, integration, publication, and release authority |
-| evidence | relevant source/artifact/rendered state and any known evidence limitations |
-
-Do not require full project history, a duplicate project brief, or unrelated repository state.
-
-If a material fact is missing and can be recovered safely from current authoritative evidence, recover only that fact. If the missing fact is actually a product/business/placement/architecture/policy decision owned elsewhere, return it as an open assumption rather than silently deciding it.
-
-## 3. Ownership when composed
+## Decision ownership
 
 | Concern | Owner |
-|---|---|
-| user-facing hierarchy, visual direction, layout/density, typography/color, interaction/motion intent, responsive/adaptive intent, interface copy, user-facing accessibility/UX intent, locale presentation, interface review | Product Interface Designer when active |
-| project outcome/scope, priority, dependencies, repository/mutation authority, task coordination, implementation orchestration, CI, integration, release, continuity | GitHub Project Orchestrator / active project Master when active |
-| platform-specific implementation mechanism and lifecycle constraints | active platform specialist/owner |
-| WordPress owner/mechanism selection, Gutenberg/block safety, templates/patterns, theme/plugin APIs, WooCommerce lifecycle, WordPress publication mechanics | WP Native Builder when active |
-| whether/why to build, unresolved product outcome, product capability reuse, product-local/Foundation/project placement, evidence-backed idea maturation | ACh Idea Advisor when active |
-| durable product/business requirements | the project's authoritative product/project source |
+| --- | --- |
+| Hierarchy, visual/interaction/copy/locale/accessibility intent, adaptive behavior, interface-system decisions and review | Product Interface Designer when active |
+| Scope, priorities, dependencies, repository authority, task/implementation coordination, CI, integration, release and continuity | GitHub Project Orchestrator / active Master |
+| Platform implementation mechanism and lifecycle; WordPress owner/mechanism, Gutenberg serialization, theme/plugin/WooCommerce behavior and publication | Active platform owner; WP Native Builder for WordPress |
+| Whether/why to build, unresolved product value/outcome, product capability reuse and product-local/Foundation/project placement | ACh Idea Advisor or caller |
+| Business, security/privacy/data, legal or other durable product contracts | The corresponding authoritative source and owner |
 
-One concern has one active decision owner. Another Skill may supply evidence, constraints, or implementation feedback without becoming a second authority.
+Each decision has one owner; another Skill can contribute constraints or evidence without becoming a parallel authority. Interface accessibility/adaptive intent remains with PID while the platform owner supplies correct semantics/mechanism. Interface/perceived-performance constraints do not transfer backend capacity or architecture ownership.
 
-### GitHub Project Orchestrator
+With Orchestrator, return the interface result to the Master or its assigned execution owner. Do not create a second roadmap, repository plan or delivery process.
 
-When GitHub Project Orchestrator is active, it frames the accepted work and keeps all project/repository/integration/release authority. Product Interface Designer receives only the interface question/context it needs and returns the packet in section 4.
+With WP Native Builder, define the intended experience while WordPress owns how to realize it safely. Allow mechanism changes that preserve intent rather than prescribing brittle internals to force a visual preference.
 
-In this consultation flow, implementation remains with the caller or its implementation/platform owner. A separately assigned implementation role may use Product Interface Designer's decision as input, but that is a distinct execution responsibility and never transfers Master authority to this specialist.
+With ACh Idea Advisor, proceed when enough product truth supports a bounded interface question; the result returns to advisory reasoning, not automatically to execution. If design exposes an unresolved whether/why, capability-reuse or product-placement question, return it. Ordinary component/pattern reuse remains an interface decision; the word “reuse” alone does not transfer it to the advisor.
 
-### WP Native Builder
+## Interface-decision packet
 
-For WordPress work:
+Return the smallest information set the caller needs:
 
-- Product Interface Designer owns the intended user-facing result: hierarchy, composition, interaction/state intent, visual direction, responsive/locale/accessibility intent, and material interface critique.
-- WP Native Builder owns how WordPress safely realizes that intent: owner/mechanism selection, Gutenberg serialization, template/pattern/theme/plugin/WooCommerce lifecycle, WordPress APIs, and publication mechanics.
+| Information | Meaning |
+| --- | --- |
+| **Intent** | User-facing outcome to preserve |
+| **Decision** | Concrete hierarchy/interaction/visual/UX decision, or material review findings and intent corrections |
+| **Constraints** | Material mandatory, product, platform, locale or interface constraints |
+| **Implementation latitude** | What the execution owner may vary without changing the experience |
+| **Evidence** | Product/source/rendered/measured/user-task evidence actually used and material limitations |
+| **Open assumptions** | Unresolved material facts or decisions for the appropriate owner |
 
-The WordPress mechanism may adapt while preserving interface intent. Product Interface Designer must not prescribe brittle WordPress internals to force a presentation preference.
+These are information needs, not mandatory headings. Reuse context the caller already has and omit empty fields. Do not add another owner's project/release plan or implementation mechanism. A supported review can have no material findings.
 
-### ACh Idea Advisor
+## Reuse and re-entry
 
-Product Interface Designer may explore interface implications once enough product truth exists. If interface work exposes a material question already owned by ACh Idea Advisor in the table above, return it there rather than resolving it through UI. Do not hide unresolved product uncertainty inside screens, navigation, or interaction choices.
+Reuse an accepted decision while its assumptions remain valid. In a WP-first flow, return the decision to WordPress; in a PID-first flow, hand off when WordPress mechanism/lifecycle work begins and let WordPress continue from that decision.
 
-## 4. Interface-decision packet
+Block/mechanism/CSS/tool/transport choices and ordinary implementation defects do not by themselves invalidate interface intent. Re-entry needs a materially changed product/design/target constraint or evidence that raises a real interface/fidelity question. Pass that change and the precise question, not an unchanged request or a full repeated brief. A new render alone does not require another consultation.
 
-Return the smallest packet the caller needs to resume its owning workflow:
+Apply the same principle to advisory and project composition: resolve a changed question, then return control; do not bounce the same unresolved question recursively.
 
-| Field | Content |
-|---|---|
-| **Intent** | the user-facing outcome the interface must preserve |
-| **Decision** | the concrete hierarchy/interaction/visual/UX decision or review conclusion |
-| **Constraints** | only material mandatory/product/platform/locale/interface constraints |
-| **Implementation latitude** | what the implementation owner may vary without changing the intended experience |
-| **Evidence** | product/source/rendered/measured/user-task evidence actually used, plus material limitations |
-| **Open assumptions** | only unresolved material facts/decisions that another owner must resolve |
+## Standalone use and durable state
 
-Do not add project priority, repository plan, release plan, or platform mechanism to this packet unless the caller explicitly owns and requests that information through a separate role.
+Without another specialist, design, review and implement authorized UI work through established mechanisms as described in SKILL.md. Standalone use does not create repository/release authority or establish unverified platform correctness.
 
-For review work, **Decision** may instead be a concise set of material findings and required intent corrections. Do not manufacture findings when the evidence supports none.
+Persist accepted interface conclusions only when future work needs them, in the project's existing source of truth. Useful outputs may include a shared direction/component change, locale/platform constraint, material open risk or implemented artifact. Do not create a composition log or duplicate project/design state merely because the Skill participated.
 
-## 5. Return control and escalate to the right owner
-
-After returning the packet, control returns to the caller. Product Interface Designer does not remain the workflow coordinator merely because later work should preserve its intent. Implementation/integration remains with the existing implementation/platform/project owner when applicable.
-
-Escalate rather than assume when an unresolved choice materially changes:
-
-| Unresolved choice | Return to |
-|---|---|
-| product value/outcome, product capability reuse, product-local/Foundation/project placement | ACh Idea Advisor or caller |
-| project/repository scope, priority, dependency, integration, release | GitHub Project Orchestrator / project Master |
-| platform architecture/mechanism/lifecycle | active platform owner, including WP Native Builder for WordPress |
-| security/privacy/data policy beyond user-facing presentation | the product/security/privacy owner |
-| legal/compliance policy | the responsible policy/legal owner/current authority |
-| another durable contract | that contract's authoritative owner |
-
-Ordinary reversible interface judgment stays inside Product Interface Designer when enough product truth exists.
-
-## 6. Shared concerns
-
-Split overlapping concerns by decision type instead of applying parallel mandatory checklists:
-
-- **Accessibility:** Product Interface Designer owns user-facing outcome/critique; the platform owner realizes the correct semantics/mechanism.
-- **Responsive/adaptive behavior:** Product Interface Designer owns intended recomposition and priority; the platform owner implements it safely.
-- **Visual/interface review:** Product Interface Designer owns interface/UX judgment when active; platform validation must not create a competing art direction.
-- **Performance:** Product Interface Designer may constrain obvious interface/perceived-performance cost; system/backend capacity and architecture stay with their engineering owner.
-- **Trust/privacy:** Product Interface Designer may own user-facing disclosure/control/consent presentation when in scope; underlying security/privacy policy and enforcement stay with their owners.
-
-Do not duplicate generic design rules inside per-Skill composition paths.
-
-## 7. Standalone use and durable state
-
-Without another specialist, Product Interface Designer may:
-
-- recover available product/design truth;
-- design or review the requested interface;
-- implement authorized UI changes using established project mechanisms it can safely identify;
-- perform proportional self-review.
-
-Standalone use does not create repository/release authority or justify claiming platform-specific correctness that was not established.
-
-Persist only accepted interface conclusions that future work needs, using the project's existing source of truth. Examples include a shared interface direction/token/pattern change, a locale/platform requirement, a material unresolved interface risk, or the implemented interface artifact. Do not create duplicate project/design state merely because this Skill participated.
-
-## 8. Invocation neutrality
-
-Capability fallback rules are owned by `SKILL.md`; do not restate them here. Provider/tool names do not define composition boundaries.
-
-The same ownership, packet, return-control, and escalation rules apply through any compatible invocation mechanism.
+Invocation mechanism and provider/tool names do not change these boundaries.

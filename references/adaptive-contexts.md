@@ -1,105 +1,31 @@
 # Adaptive Contexts
 
-Use this reference when window size, multi-window state, fold/posture, restoration, available space, or active input method materially changes how the interface should compose or behave.
-
-This file owns **user-facing adaptation and context-preservation intent**. [platforms.md](platforms.md) owns target-platform conventions; exact version-sensitive windowing, posture, input, and lifecycle behavior stays with current platform authority.
+Use this depth when resize, windowing, posture, restoration or input changes alter task structure, continuity or composition. Ordinary breakpoint styling can stay with local design/platform work. [platforms.md](platforms.md) owns target conventions and exact platform mechanisms.
 
 ## Contents
 
-[Activation](#1-activate-only-when-context-can-change-the-experience) · [Available space](#2-adapt-to-available-space-not-device-labels) · [Context preservation](#3-preserve-task-context-across-change) · [Input](#4-handle-input-capability-transitions) · [Posture/windowing](#5-treat-window-and-posture-as-current-state) · [Continuity](#6-keep-navigation-and-state-continuous) · [Authority](#7-route-exact-platform-behavior-to-current-authority)
+[Space](#available-space-and-current-state) · [Continuity](#task-and-navigation-continuity) · [Input](#input-transitions)
 
-## 1. Activate only when context can change the experience
+## Available space and current state
 
-Do not load adaptive guidance for a fixed-context interface merely because responsive design exists.
+Compose from usable space, content, input and task, not device labels. A large screen may contain a small window; a foldable has no single fixed posture. Preserve authoritative project thresholds unless the accepted work changes them, and favor content/intrinsic thresholds over a device catalog.
 
-Use it when one or more of these can materially change during use:
+Panels, columns, navigation and supporting content may recompose while retaining meaning and the primary task. Treat window/posture geometry as current state rather than a permanent product mode. Keep indispensable content and controls out of known occluded regions, hinges or seams; retain a viable compact layout instead of squeezing a wide one indefinitely.
 
-- application/window size or orientation;
-- split view, multi-window, stage/window management, or external display;
-- fold/posture/hinge geometry;
-- restoration after resize/reopen/process interruption;
-- available pointer, touch, keyboard, pen, gamepad/remote, or assistive input;
-- density/navigation structure that must recompose rather than simply scale.
+Use current platform/browser authority for material windowing, geometry, inset, lifecycle and input APIs. The implementation owner selects and verifies the supported mechanism.
 
-Ordinary breakpoint styling remains local design/platform work unless the context change can alter task structure, control placement, continuity, or input assumptions.
+## Task and navigation continuity
 
-## 2. Adapt to available space, not device labels
+Preserve meaningful object, selection, draft, filters, reading/scroll position, focus and navigation state through transitions when product/platform behavior permits. Resize should not arbitrarily dismiss ongoing work, duplicate input or discard it. If exact presentation cannot survive, preserve the task and make the new presentation understandable.
 
-Prefer actual constraints over device stereotypes.
+Relocation is not navigation: keep destination identity, return expectations and multi-pane selection coherent as panes collapse or expand, without duplicate histories. Different windows may legitimately show different objects; do not force mirroring without product authority.
 
-- Base layout decisions on usable space, content need, input capability, and product task rather than labels such as “tablet” or “desktop.”
-- Recompose when hierarchy or workflow benefits: columns may become panels, secondary navigation may become persistent, or supporting content may move without changing its meaning.
-- Keep the primary task and important state understandable across compact and expanded layouts.
-- Do not assume a large physical screen means a large application window.
-- Do not assume foldables or tablets always use one posture, orientation, or navigation arrangement.
-- Avoid arbitrary breakpoints that merely reproduce a device catalog when intrinsic layout or content thresholds are clearer.
+Restore only state the product can still validate. If staleness, permission change or other invalidation prevents safe continuity, expose the new state and recovery. Shared-state interaction between windows belongs to [collaboration-concurrency.md](collaboration-concurrency.md).
 
-When the project already has authoritative layout/container thresholds, preserve them unless the accepted work changes them.
+## Input transitions
 
-## 3. Preserve task context across change
+Actual input capability can change while the product remains open; viewport size does not establish it. Required actions need a usable path for the inputs the product supports, with pointer/touch efficiency and logical keyboard focus as regions move.
 
-A context transition should not make users restart ordinary work.
+Hover can enrich but cannot carry essential information when other supported inputs need it. Provide equivalent drag/drop or gesture paths where required; introduce pen, remote/gamepad or other behavior only when supported and useful. Use reliable platform signals for input hints rather than guessing from a device category.
 
-Where product/platform behavior allows:
-
-- preserve current object, selection, draft, filters, scroll/reading position, and navigation state when those remain meaningful;
-- keep focused/active work visible or restore focus deliberately rather than letting it jump unpredictably;
-- avoid dismissing a form, dialog, editor, or in-progress task merely because the window resized;
-- if a layout mode cannot preserve an exact presentation, preserve the underlying task and make the changed presentation understandable;
-- do not duplicate or silently discard user input while moving content between regions;
-- distinguish intentional navigation from responsive relocation.
-
-If preserving state would be unsafe or semantically invalid, surface the changed state and recovery path rather than pretending continuity.
-
-## 4. Handle input capability transitions
-
-Input method can change while the product remains open.
-
-Design the interaction contract so that:
-
-- required actions are not available only through hover, precision pointer, gesture, or keyboard shortcut unless the product explicitly targets that input;
-- pointer hover may enrich but must not be the sole carrier of required information when touch/keyboard may also be active;
-- touch-friendly target size/spacing can coexist with keyboard and pointer efficiency where multiple inputs are expected;
-- keyboard focus/order remains logical when layout regions move or collapse;
-- drag/drop has an equivalent path when another supported input cannot perform it;
-- pen or gamepad/remote behavior is added only when the actual product/platform supports and benefits from it;
-- input hints/affordances reflect the active capability when the platform reliably exposes it rather than hard-coding a device assumption.
-
-Do not infer the user's current input solely from viewport size.
-
-## 5. Treat window and posture as current state
-
-When windowing or fold/posture materially affects the interface:
-
-- treat the current usable region as input to composition, not as a permanent product mode;
-- keep critical controls/content away from unusable/occluded regions when current platform geometry exposes them;
-- allow secondary panes/toolbars to appear or collapse according to available space without changing product semantics;
-- avoid placing one indispensable control across a hinge/seam or outside the currently usable interaction region;
-- preserve a sensible minimum viable layout instead of squeezing a wide composition until it becomes unusable.
-
-Do not encode platform-specific posture enums, window APIs, inset rules, or lifecycle callbacks here. Use the target platform's current official guidance when exact behavior matters.
-
-## 6. Keep navigation and state continuous
-
-Adaptive recomposition may change presentation without changing navigation meaning.
-
-- Do not create duplicate navigation histories when the same destination moves between sidebar, tab, pane, or menu.
-- Preserve destination identity and back/return expectations across compact/expanded transitions.
-- Keep master-detail or multi-pane selection coherent when panes collapse/expand.
-- When restoring a prior session/window, restore only state the product can still validate; stale or permission-changed state should use the applicable shared-state/trust guidance.
-- Multi-window instances may legitimately show different objects or states; do not assume every window must mirror another unless product truth requires it.
-
-When simultaneous windows/sessions act on shared state, also use [collaboration-concurrency.md](collaboration-concurrency.md).
-
-## 7. Route exact platform behavior to current authority
-
-Durable adaptive principles belong here. Exact behavior for:
-
-- iOS/iPadOS/visionOS windowing and scene lifecycle;
-- Android window size classes, fold/posture, predictive/back/lifecycle behavior;
-- desktop window restoration, scaling, multi-monitor behavior;
-- browser viewport, viewport units, resize, input media queries, and related APIs
-
-must come from current official platform/browser authority when it materially affects implementation.
-
-Product Interface Designer defines the intended adaptive experience. The platform/implementation owner chooses the supported mechanism and validates it on the actual target.
+When continuity is impossible or unsafe, make that limitation and the next useful action clear instead of pretending the previous interaction remains valid.
