@@ -74,22 +74,15 @@ Product Interface Designer is a **consulted specialist**, not a nested project M
 
 ### Generic composed flow
 
-Consult Product Interface Designer for a materially unresolved interface decision or review, then return the bounded result and control. The caller continues its workflow through the existing implementation owner when execution is applicable. Reuse accepted interface decisions; another consultation needs a materially changed interface question or evidence, not merely another implementation step.
+Consult Product Interface Designer for a materially unresolved interface decision or requested review, then return the bounded result and control. The caller continues its workflow through the existing implementation owner when execution is applicable. Follow the runtime [reuse and re-entry contract](../references/composition.md#reuse-and-re-entry); another implementation step does not by itself require consultation.
 
 The caller remains authoritative for its own workflow. Project/platform/implementation owners retain their existing authorities; composition does not create a nested Master or transfer repository/integration/release ownership.
 
 ### Interface decision packet
 
-When composed, Product Interface Designer should return only what the caller needs:
+The runtime [interface-decision packet](../references/composition.md#interface-decision-packet) owns the six information fields and their semantics. Return only the information the caller needs, including evidence actually used and material limitations; do not maintain a second field definition here.
 
-- **intent:** what user/task outcome the interface must support;
-- **decision:** concrete hierarchy/interaction/visual/locale behavior;
-- **constraints:** mandatory user-facing/platform/locale/accessibility/trust requirements;
-- **implementation latitude:** what the platform owner may adapt without changing the experience;
-- **evidence:** what would make the decision/review credible;
-- **open assumptions:** only unresolved material product/design facts.
-
-These are information needs, not mandatory headings or a requirement to repeat facts the caller already has. Do not return a second project plan, repository workflow, release plan, or implementation mechanism owned by another Skill.
+These are information needs, not mandatory headings or a requirement to repeat known facts or empty fields. Do not return a second project plan, repository workflow, release plan, or implementation mechanism owned by another Skill.
 
 ## 7. Composition with AChWorks Skills
 

@@ -28,7 +28,7 @@ For a strong visual device, identify what product meaning, hierarchy, state, int
 
 | Role of the reference | What to carry into the result |
 | --- | --- |
-| Close or high-fidelity implementation | Treat observable geometry, hierarchy, density, type character, color relationships and interaction cues as accepted requirements, subject to stronger product or mandatory constraints. Verify material fidelity against rendered evidence when available. |
+| Close or high-fidelity implementation | Treat observable geometry, hierarchy, density, type character, color relationships, visible states and interaction cues as accepted requirements, subject to stronger product or mandatory constraints. Verify material fidelity against rendered evidence when available. |
 | Inspiration | Extract useful rhythm, hierarchy, character, imagery treatment or interaction principles, then adapt them to the actual product. |
 | Partial visual evidence | Use only what it shows. A screenshot does not establish hidden behavior, data rules, responsive states, factual claims or platform semantics. |
 
@@ -38,7 +38,7 @@ Preserve authoritative product content, terminology and identity when the refere
 
 Make the intended reading and action order apparent through information order, grouping, alignment, type, spacing and emphasis. Containers, cards, borders, labels and badges should express grouping, state, sequence or affordance. Equal visual weight implies equal importance; repeated cards are useful only when that relationship is real.
 
-When a surface is confusing, first remove competing actions, redundant labels or weak grouping. Keep one dominant action in a decision area unless the task has genuinely co-equal outcomes. Adding another border or heading will not repair an unclear decision model.
+When a surface is confusing, first reduce unnecessary visual competition, remove redundant labels or duplicate actions, and clarify grouping. Keep one dominant action in a decision area unless the task has genuinely co-equal outcomes. Adding another border or heading will not repair an unclear decision model.
 
 Choose composition and density from the content and task. Keep actions near the information that justifies them, preserve readable line widths, and use repetition to establish rhythm with meaningful exceptions. Empty space can serve composition; it should not hide a weak information structure. Exercise short, typical and long content rather than protecting one ideal string.
 
@@ -92,7 +92,7 @@ Choose feedback by significance, persistence, scope, actionability and interrupt
 
 Do not bury a material failure or recovery action in a disappearing message, or turn routine success into repeated interruption. Exact delivery behavior belongs to the platform; consequential choice and consent belong to [trust-agency.md](trust-agency.md).
 
-Cover the states the flow actually supports: loading/progressive arrival, empty or partial data, overflow, validation/failure/retry, access limits, offline work, unsaved changes, unavailable actions, success and destructive recovery. Explain what happened and the next possible action without inventing backend behavior, permissions or undo.
+Cover states material to the accepted flow: loading/progressive arrival, empty or partial data, overflow, validation/failure/retry, access limits, offline work, unsaved changes, unavailable actions, success and destructive recovery. Explain what happened and the next possible action without inventing backend behavior, permissions or undo.
 
 For first use, get users to a meaningful action and teach features where they become useful. Empty states or working examples may orient better than a tour. Let experienced users skip education unless a real setup or safety requirement prevents it; do not force an educational sequence before ordinary access.
 

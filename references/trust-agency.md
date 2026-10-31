@@ -31,7 +31,7 @@ Before consequential commitment, identify affected scope and material consequenc
 
 ## Deceptive or obstructive behavior
 
-Watch for hidden fees, recurring behavior, privacy consequences or scope; promotion disguised as independent/required content; intentionally difficult refusal/cancellation/deletion; unsupported scarcity or urgency; double negatives and ambiguous toggles; valid choices met with repeated nagging; permitted options made to appear unavailable; or optional purchases/data sharing added without authorizing user action.
+Watch for material terms, fees, recurring commitments, privacy consequences or action scope disclosed only after commitment; promotion disguised as independent/required content; intentionally difficult refusal/cancellation/deletion; unsupported scarcity or urgency; double negatives and ambiguous toggles; valid choices met with repeated nagging; permitted options made to appear unavailable; or optional purchases/data sharing added without authorizing user action.
 
 A real state or policy change may create a new decision; ordinary persistence of a commercial preference does not. Resolve a conflict with business preference through a transparent choice model, returning policy or scope questions when needed.
 

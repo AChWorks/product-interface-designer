@@ -49,9 +49,9 @@ These are information needs, not mandatory headings. Reuse context the caller al
 
 Reuse an accepted decision while its assumptions remain valid. In a WP-first flow, return the decision to WordPress; in a PID-first flow, hand off when WordPress mechanism/lifecycle work begins and let WordPress continue from that decision.
 
-Block/mechanism/CSS/tool/transport choices and ordinary implementation defects do not by themselves invalidate interface intent. Re-entry needs a materially changed product/design/target constraint or evidence that raises a real interface/fidelity question. Pass that change and the precise question, not an unchanged request or a full repeated brief. A new render alone does not require another consultation.
+Block/mechanism/CSS/tool/transport choices and ordinary implementation defects do not by themselves invalidate interface intent. Re-consult within the caller's workflow when changed facts/evidence, a resolved returned assumption or a distinct question requires material interface judgment, or when specialist review is explicitly requested. Reuse still-valid conclusions; a review request does not itself invalidate them.
 
-Apply the same principle to advisory and project composition: resolve a changed question, then return control; do not bounce the same unresolved question recursively.
+Pass the precise question and only new or missing context needed for it. A new render alone does not require consultation. Resolve the bounded question, return control, and do not bounce the same unresolved question recursively.
 
 ## Standalone use and durable state
 

@@ -38,7 +38,7 @@ Search indexing, ranking, storage and backend query design remain outside interf
 
 Use steps for meaningful sequence, dependencies or review boundaries; do not fragment a short independent form into a wizard. Keep current progress and remaining shape understandable, permit review/edit of earlier choices where allowed, and preserve valid work across errors and ordinary navigation.
 
-Avoid re-entry unless actual security/legal/product rules require it. Make branching understandable and distinguish review from irreversible commitment when consequence warrants it. Define the user-facing result of interruption, expiry, partial completion or resumption from known product behavior.
+Avoid making users re-enter information the product already has unless actual security/legal/product rules require it. Make branching understandable and distinguish review from irreversible commitment when consequence warrants it. Define the user-facing result of interruption, expiry, partial completion or resumption from known product behavior.
 
 ## Complex interaction patterns
 
