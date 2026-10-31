@@ -1,326 +1,103 @@
 # Core Interface Design
 
-Use this reference for new interface work, targeted visual/UX modification, and redesign. It owns cross-locale product-interface reasoning. Locale, platform, and detailed review rules stay in their dedicated references.
+Use the relevant sections for product-interface decisions. Change scope and authority come from SKILL.md; platform, locale and verification detail remain with their dedicated owners.
 
 ## Contents
 
-[Change type](#1-classify-the-change-before-designing) · [Direction](#2-ground-visual-direction-in-the-product) · [References/fidelity](#treat-references-by-requested-fidelity) · [Hierarchy](#3-shape-hierarchy-before-decoration) · [Layout](#4-compose-layout-and-density-deliberately) · [Typography](#5-treat-typography-as-interface-structure) · [Color](#6-build-color-from-roles) · [Visual language](#7-keep-shape-depth-imagery-and-icons-coherent) · [Controls/copy/data](#8-design-controls-around-tasks-and-states) · [Feedback/interruption](#choose-feedback-and-interruption-by-significance) · [Edge states/onboarding](#9-design-the-non-ideal-states) · [Design systems](#10-use-design-systems-proportionally) · [Coherence check](#11-check-coherence-before-adding-detail)
+[Scope](#change-scope) · [Direction](#product-direction) · [Fidelity](#reference-fidelity) · [Hierarchy/layout](#hierarchy-and-layout) · [Typography/visual roles](#typography-and-visual-roles) · [Controls/copy](#controls-and-interface-copy) · [Data](#data-presentation) · [Feedback/states](#feedback-and-non-ideal-states) · [Reuse/refinement](#reuse-and-refinement)
 
-## 1. Classify the change before designing
+## Change scope
 
-### New interface
+| Accepted work | Design decision |
+| --- | --- |
+| New interface or surface | Derive direction from the product, task and content. A new surface can still belong to an established product; recover its design truth first. Establish only enough shared visual language for coherence. |
+| Targeted modification | Preserve incumbent tokens, type, components, information architecture, interaction vocabulary and terminology except where the accepted change requires adjustment. Make the smallest coherent change. |
+| Redesign | Deliberately reconsider composition, type, color, density, imagery, component expression and motion. Retain product capabilities, content semantics, validated terminology, business rules, integrations and mandatory constraints unless their authoritative owner changes them. Recoloring the old layout may not solve the accepted problem. |
 
-Derive direction from the product, audience, content, usage context, platform, and brand evidence. Establish only enough reusable visual system to keep the work coherent.
+## Product direction
 
-A new surface still may belong to an existing product. Recover existing design truth before assuming a blank slate.
+Let the user task, content, usage frequency, consequence of mistakes, available brand evidence and actual input context determine the design. An operations screen may need stable comparison and low interruption; an introduction surface may give imagery and sequencing more room. These are task priorities, not fixed page genres.
 
-### Targeted modification
+Use the product's own language, materials, data and imagery to establish character. Prefer real content when available; clearly representative content can expose wrapping, density and state problems during exploration. A short direction is useful when several decisions need a shared rationale, not as a compulsory preliminary document.
 
-Recover the incumbent visual language first. Preserve established tokens, spacing, typography, components, information architecture, interaction vocabulary, and copy terminology unless the requested change requires otherwise.
+Density, distinctiveness, contrast, ornament and motion are independent choices. A dense interface can be distinctive; expressive typography does not require animated decoration. Common conventions remain valuable when they support the task.
 
-Make the smallest coherent change. Do not use a local feature request as permission for opportunistic rebranding, framework migration, wholesale component replacement, or unrelated polish.
+For a strong visual device, identify what product meaning, hierarchy, state, interaction or intentional character it contributes. If it could move unchanged to an unrelated product, reconsider whether it is doing useful work. Keep established expression and familiar conventions when justified; do not manufacture novelty or remove an intentional identity cue merely because it is common elsewhere.
 
-### Redesign
+## Reference fidelity
 
-Separate constraints that must survive from visual choices that are open to change.
+| Role of the reference | What to carry into the result |
+| --- | --- |
+| Close or high-fidelity implementation | Treat observable geometry, hierarchy, density, type character, color relationships, visible states and interaction cues as accepted requirements, subject to stronger product or mandatory constraints. Verify material fidelity against rendered evidence when available. |
+| Inspiration | Extract useful rhythm, hierarchy, character, imagery treatment or interaction principles, then adapt them to the actual product. |
+| Partial visual evidence | Use only what it shows. A screenshot does not establish hidden behavior, data rules, responsive states, factual claims or platform semantics. |
 
-Keep fixed unless the request or authoritative product evidence changes them:
-- user jobs and product capabilities;
-- content semantics and information requirements;
-- safety/accessibility/legal obligations;
-- validated terminology and business rules;
-- platform constraints and integrations.
+Preserve authoritative product content, terminology and identity when the reference contains unrelated placeholders. [review.md](review.md) owns evidence appropriate to fidelity claims.
 
-Reconsider deliberately:
-- visual direction;
-- type scale and font choices;
-- color roles;
-- spacing/density;
-- shape/elevation language;
-- composition and component expression;
-- imagery/illustration direction;
-- motion character.
+## Hierarchy and layout
 
-Do not confuse a redesign with restyling the old layout. Rebuild visual decisions around the retained constraints.
+Make the intended reading and action order apparent through information order, grouping, alignment, type, spacing and emphasis. Containers, cards, borders, labels and badges should express grouping, state, sequence or affordance. Equal visual weight implies equal importance; repeated cards are useful only when that relationship is real.
 
-## 2. Ground visual direction in the product
+When a surface is confusing, first reduce unnecessary visual competition, remove redundant labels or duplicate actions, and clarify grouping. Keep one dominant action in a decision area unless the task has genuinely co-equal outcomes. Adding another border or heading will not repair an unclear decision model.
 
-Before choosing a style, identify the strongest product-specific inputs available:
+Choose composition and density from the content and task. Keep actions near the information that justifies them, preserve readable line widths, and use repetition to establish rhythm with meaningful exceptions. Empty space can serve composition; it should not hide a weak information structure. Exercise short, typical and long content rather than protecting one ideal string.
 
-- primary user and task;
-- emotional/functional goal of the surface;
-- content type and density;
-- domain materials, language, imagery, data, or physical/visual references;
-- brand attributes already evidenced by the product;
-- usage conditions such as quick scanning, long reading, creation, monitoring, purchase, collaboration, or high-stakes confirmation.
+Secondary complexity can be disclosed when needed. In-context interaction usually preserves orientation better than interruption, but the significance of a decision governs the final choice. Responsive composition may reorder or transform content; it is not merely a scaled-down desktop layout.
 
-Turn those inputs into a short direction, not a mood-board dump. A useful direction explains what should feel distinctive and what should remain quiet.
+## Typography and visual roles
 
-Treat content as part of the interface material. Prefer real copy, data, imagery, and examples when available. When exploratory work needs realistic volume but factual content is unavailable, use clearly representative/synthetic material to exercise hierarchy, wrapping, density, and states; never let placeholder content masquerade as a real claim, customer, metric, or product fact.
+Use incumbent typefaces for bounded changes. For new work, choose for content, script coverage, intended character, platform and delivery cost; verify availability, licensing and the actual weights/scripts that can ship. Keep an intentional scale and weight range, with readable body text and clear labels at the real density. Additional families or display treatments need a useful role. Script shaping, bidi and locale-specific typography belong to the relevant locale guidance.
 
-Do not default to whichever visual treatment is currently fashionable. Common patterns are valid when justified by the product; they are weak when selected merely because they are easy to generate.
+Build color from semantic roles: surface, text, action, focus/selection, status and data. Reuse project tokens; place accents where attention or identity is earned. Essential meaning needs a channel beyond color. Themes need deliberate role relationships, not mechanical inversion.
 
-Allocate visual emphasis according to hierarchy. Use a small number of deliberate identity cues that reinforce the product; competing gestures weaken both hierarchy and character.
+Shape, border, shadow, blur and elevation should make relationships understandable. Coherence does not require applying the same treatment to every object; nested shapes should be optically related. Use a coherent icon language to clarify actions and categories, with directional meaning appropriate to the actual interface. Imagery should explain, orient, demonstrate or express the product, with deliberate cropping, aspect ratio and treatment.
 
-### Treat references by requested fidelity
+## Controls and interface copy
 
-A screenshot, mockup, wireframe, or another product can serve different roles. Resolve that role before copying surface choices.
+Controls should expose what will happen and the state needed to decide. Use specific action or destination labels and consistent vocabulary across the action, progress, success and failure. Give prominence according to actual priority and consequence.
 
-- If the user requests **high fidelity** or a close implementation match, treat observable hierarchy, geometry, density, typography character, color relationships, states, and interaction cues as accepted interface requirements unless a higher-precedence constraint or authoritative product truth conflicts.
-- If the reference is **inspiration/direction**, extract the useful principles—hierarchy, rhythm, density, visual character, imagery treatment, or interaction pattern—without assuming literal reproduction.
-- A visual reference proves only what it actually shows. Do not infer hidden product behavior, data rules, responsive states, assets, claims, or platform semantics from one screenshot.
-- Preserve real product content, terminology, brand assets, and requirements even when a reference uses different placeholders or identity.
-- When implementation/render capability exists and fidelity is material, review the result against the reference at representative states/sizes; [review.md](review.md) owns evidence strength and rendered verification.
+Group form fields by the user's task rather than the backend schema. Use persistent meaningful labels, explain requirements where they matter, preserve recoverable input and make irreversible outcomes explicit. Do not collect data before the product needs it. Navigation should make location, destination and return predictable; additional navigation levels need an information-architecture reason.
 
-### Set priorities from the user job
+Write in the user's domain language while preserving authoritative technical terms and identifiers where simplification would lose accuracy. Put decision-relevant information first. If lengthy instructions mainly explain ordinary controls, simplify the interaction before adding prose. Error, empty, blocked and permission states should offer the next useful step when one exists, without blame. Keep guidance beside its decision and use calm, unambiguous language where consequence or stress matters.
 
-Before choosing visual treatments, write a compact priority statement for the surface from the evidence you have. Base it on:
+Write complete localizable messages with variables/counts separate from sentence structure; allow reordering and expansion instead of assembling fragments or abbreviating to protect a brittle layout. Locale-specific wording belongs to the locale owner.
 
-- what the user must accomplish, understand, compare, decide, or notice;
-- how often and how quickly the surface is used;
-- information density and content complexity;
-- consequence/trust level of mistakes or decisions;
-- how much brand expression helps rather than distracts;
-- the dominant input/device context.
+## Data presentation
 
-Example: a frequently used operations screen may prioritize fast comparison and stable interaction while carrying brand character through type, color, and detail; a product-introduction surface may give sequencing, imagery, and identity more room because attention and trust are part of the task.
+Choose the representation from the question the data answers.
 
-Do not turn those priorities into rigid page categories. A single product can need very different priorities on different surfaces.
+| Question | Useful representation |
+| --- | --- |
+| Exact values, aligned comparison, dense scanning or sorting | Table; also useful as an accessible equivalent |
+| Repeated entities with a dominant reading order | List |
+| Compare discrete magnitudes | Bars |
+| Change over time | Lines |
+| Spread and outliers | Distribution plot |
+| Relationships between continuous variables | Scatter-style view |
+| Rough share of a whole with few categories | Part-to-whole chart; use bars/table for precise comparison |
 
-### Keep visual qualities independent
+Maps, funnels, networks, gauges and similar specialized forms need a matching data structure or task. Provide direct labels, a table or a meaningful summary when exact interpretation or non-visual access requires it. Avoid ornamental charts or motion that makes comparison harder.
 
-Do not treat density, visual distinctiveness, contrast, ornament, and motion as one bundled style preset. Decide each from the task and content. A dense interface can still be visually distinctive; a bold interface can remain quiet in motion; a spacious page does not need decorative excess.
+## Feedback and non-ideal states
 
-### Test every distinctive choice for relevance
+Choose feedback by significance, persistence, scope, actionability and interruption cost.
 
-For each strong visual device, ask:
+| User need | Appropriate starting point |
+| --- | --- |
+| Understand or repair a local condition | Feedback beside the affected object/control |
+| Notice a routine confirmation that can safely disappear | Transient feedback |
+| Understand an ongoing condition affecting current work | Persistent surface-level message |
+| Make an immediate decision whose consequence warrants blocking context | Alert or modal-style decision |
+| Receive timely, useful information while away from the product | System notification, subject to target-platform behavior and permission |
 
-- What product, content, hierarchy, state, or interaction does it express?
-- Would the same choice survive unchanged in an unrelated product?
-- Does repeating it improve comprehension or merely create a pattern?
-- If it were removed, would the interface lose useful meaning, orientation, or character?
+Do not bury a material failure or recovery action in a disappearing message, or turn routine success into repeated interruption. Exact delivery behavior belongs to the platform; consequential choice and consent belong to [trust-agency.md](trust-agency.md).
 
-Keep familiar conventions when they help users. Keep unusual choices when they are earned by the product. Remove decoration that has no defensible role.
+Cover states material to the accepted flow: loading/progressive arrival, empty or partial data, overflow, validation/failure/retry, access limits, offline work, unsaved changes, unavailable actions, success and destructive recovery. Explain what happened and the next possible action without inventing backend behavior, permissions or undo.
 
-## 3. Shape hierarchy before decoration
+For first use, get users to a meaningful action and teach features where they become useful. Empty states or working examples may orient better than a tour. Let experienced users skip education unless a real setup or safety requirement prevents it; do not force an educational sequence before ordinary access.
 
-For each surface, make the intended reading/action order apparent.
+## Reuse and refinement
 
-Use:
-- information order;
-- grouping/proximity;
-- alignment;
-- size and typographic contrast;
-- whitespace/density;
-- color/weight;
-- progressive disclosure;
-- placement and repetition.
+Reuse authoritative tokens, components and patterns; make only the coherent extension the current task needs. Keep local exceptions local. A new taxonomy, component library or governance process is justified by continuing reuse, not by a single surface needing consistency. [design-systems.md](design-systems.md) owns system-level contracts and migration.
 
-Structural devices such as cards, borders, dividers, labels, badges, numbering, or containers should encode grouping, state, sequence, or affordance. Do not add them merely to make a screen look designed.
-
-Avoid chopping every idea into equal cards. Equal visual weight implies equal importance.
-
-### Remove competition before adding structure
-
-When a surface feels busy or unclear, simplify the decision model before decorating it.
-
-- Remove or merge redundant labels, repeated explanations, and duplicate actions.
-- Keep one clearly dominant action in a decision area unless the task genuinely has co-equal outcomes.
-- Use progressive disclosure for secondary complexity that users do not need yet.
-- Prefer inline or in-context interaction before introducing interruption/modal behavior.
-- Do not add a card, border, heading, or background merely to compensate for weak grouping.
-
-## 4. Compose layout and density deliberately
-
-Choose layout from content and task behavior, not from a preferred grid pattern.
-
-- Keep primary actions near the information that justifies them.
-- Align elements to an intentional grid, baseline, edge, or optical relationship.
-- Let repeated structures establish rhythm; use exceptions to signal real differences.
-- Tune density for the task. Operational/data-heavy screens may need compact scanning; reading, onboarding, and persuasive content may need more breathing room.
-- Preserve useful content width. Do not stretch readable text simply because the viewport is wide.
-- Avoid large empty areas that have no compositional purpose.
-- Design for short, typical, and long content rather than only the ideal string length.
-
-Responsive recomposition and platform-specific layout behavior are owned by the platform/review references.
-
-## 5. Treat typography as interface structure
-
-Typography communicates hierarchy, personality, density, and scanning behavior.
-
-- Start from the project's actual typefaces when modifying an existing product.
-- For new work, choose type for the content, script coverage, platform, performance constraints, and intended character. Verify current availability/licensing and the actual weights/scripts the project can ship rather than trusting a static font shortlist.
-- Use a small intentional type scale and a small set of weights.
-- Distinguish levels by a combination of size, weight, line height, width, spacing, and placement rather than arbitrary one-off values.
-- Keep body text comfortably readable and line lengths appropriate to the content.
-- Ensure interface labels remain clear at the actual density.
-- Avoid decorative display treatment where clarity is the job.
-- Do not introduce a second or third family without a specific role it improves.
-
-Script-specific shaping, line-height, bidi, and Persian typography behavior live in the locale reference.
-
-## 6. Build color from roles
-
-Color choices should form a system of roles rather than a collection of attractive swatches.
-
-At minimum distinguish as applicable:
-- canvas/surface;
-- primary text and secondary text;
-- border/separator;
-- primary action/brand;
-- focus/selection;
-- informational/success/warning/destructive states;
-- data-series colors when needed.
-
-Prefer semantic tokens or existing project tokens over raw values repeated through components.
-
-Use accent color where attention or identity is earned. If everything is accented, nothing is prioritized.
-
-Color must not be the only carrier of critical meaning. Detailed contrast/accessibility verification belongs to the review reference.
-
-## 7. Keep shape, depth, imagery, and icons coherent
-
-### Shape and depth
-
-Use radius, border, shadow, blur, and elevation consistently enough that users can infer hierarchy. Nested shapes should look optically related. Avoid applying identical radius/shadow treatment to every object regardless of role.
-
-### Imagery and illustration
-
-Choose imagery because it helps explain, orient, demonstrate, or express the product. Match cropping, aspect ratio, treatment, and art direction across the surface. Do not fabricate people, customers, logos, awards, product screenshots, or claims that are supposed to be real.
-
-### Icons
-
-Use one coherent icon language. Icons should clarify actions or categories, not decorate every label. Directional icons must follow the actual interface direction; locale-specific behavior is owned by the locale reference.
-
-## 8. Design controls around tasks and states
-
-Controls should say what happens and expose the state users need to make a decision.
-
-### Actions
-
-- Name actions with specific verbs when possible.
-- Keep the same action vocabulary through button, progress, success, and error states.
-- Distinguish primary, secondary, tertiary, and destructive actions by actual priority.
-- Do not create multiple visually dominant actions in one decision area without reason.
-
-### Choose feedback and interruption by significance
-
-Choose the feedback surface from what the user needs to know or do, not from a preferred component.
-
-Consider together:
-- **significance/urgency** — how costly it is to miss or delay the information;
-- **persistence** — whether the information must remain available after the moment passes;
-- **scope** — whether it applies to one control/object, the current surface, the product session, or activity outside the app;
-- **actionability** — whether the user must act now, can act later, or only needs confirmation;
-- **context/interruption cost** — whether leaving or blocking the current task would create more harm than the message prevents.
-
-Prefer feedback close to the affected object or task when users can act on it in context. Use transient feedback only when losing the message is harmless and no later reference is needed. Use persistent surface-level messaging when an ongoing condition materially affects the current work. Interrupt with an alert/modal-style decision only when immediate understanding or action is important enough to justify blocking the current context. Use an out-of-app/system notification only when the information remains timely and valuable while the user is away from the product.
-
-Do not escalate routine success, low-value updates, or recoverable background state into repeated interruptions merely to make system activity visible. Do not hide a material failure in a transient message that can disappear before recovery.
-
-Exact notification surfaces, permission behavior, platform delivery rules, and protected system UI belong to current target-platform authority. When the feedback also involves consent, destructive/high-consequence choice, or deceptive pressure, [trust-agency.md](trust-agency.md) owns those agency constraints.
-
-### Forms
-
-- Group fields by user task, not backend schema.
-- Use persistent labels for meaningful inputs.
-- Make requirements and validation recoverable.
-- Keep destructive or irreversible outcomes explicit.
-- Avoid asking for data before the product needs it.
-
-Detailed input semantics, focus, keyboard/touch behavior, and accessibility checks live in the platform/review references.
-
-### Navigation
-
-Navigation should reflect the product's information architecture and user mental model. Keep location, return path, and destination meaning predictable. Do not add navigation levels simply to fit a component pattern.
-
-### Interface copy
-
-Treat copy as part of the interaction, not filler around the visual design.
-
-- Use the product's established nouns and verbs consistently, and prefer the language users need for the task over internal implementation or organizational terminology.
-- Prefer labels that name the actual action or destination over generic words such as "Continue" when a specific label is available.
-- Put the decision-relevant or action-relevant information first; remove filler, ceremonial wording, and repeated explanation that does not change the user's next action.
-- If substantial explanatory copy is needed mainly to teach users how ordinary controls/layout work, simplify the interface before adding more instructions.
-- Error, empty, permission, and blocked states should explain the next useful step when one exists without blaming the user for the system's wording, validation model, or failure.
-- Keep instructions close to the control or decision they explain.
-- Match tone to the consequence and context. Keep high-stress, failure, destructive, financial, privacy-sensitive, or support-critical moments calm and unambiguous; do not use personality or humor where it can obscure the action or consequence.
-- Preserve technical identifiers or domain terms when translating or simplifying them would reduce accuracy.
-- Write complete messages that can be translated and reordered; avoid assembling user-facing sentences from fragments.
-- Keep variables, counts, and dynamic values structurally separate from surrounding copy so pluralization/localization can change their order.
-- Let copy expand instead of abbreviating it merely to protect a brittle layout.
-- Do not invent proof, metrics, testimonials, guarantees, capabilities, or business facts to make a layout feel complete.
-
-Locale-specific register and Persian wording belong to the locale reference.
-
-### Data presentation
-
-Choose tables, lists, cards, charts, summaries, or detail views from the question users need answered.
-
-- Tables are strong for exact values, aligned comparison, dense scanning, sorting, and accessible fallback.
-- Lists are strong for repeated entities with a dominant reading order.
-- Use bars for comparing discrete magnitudes, lines for change over time, distribution plots for spread/outliers, and scatter-style views for relationships between continuous variables.
-- Use part-to-whole charts only when there are few categories and rough proportion is the actual question; switch to bars/tables when precise comparison matters.
-- Do not add a gauge, map, funnel, network, or decorative visualization unless the underlying structure really matches that form.
-- For dense or interactive charts, provide direct labels or an equivalent table/summary when users need exact meaning or non-visual access.
-- Encode important distinctions with more than hue alone when possible.
-- Avoid ornamental charts and unnecessary animation of data.
-
-## 9. Design the non-ideal states
-
-When material to the flow, account for:
-
-- loading and progressive arrival;
-- empty/new-user states;
-- partial or sparse data;
-- dense/overflowing data;
-- validation and recoverable errors;
-- permission/access limits;
-- offline/retry states when the product has them;
-- success/confirmation;
-- disabled/unavailable actions;
-- destructive confirmation or undo;
-- very long content and localization expansion.
-
-Each state should help the user understand what happened and what they can do next. Do not use mood, apology, or decorative emptiness instead of direction.
-
-### First use and onboarding
-
-When users need orientation:
-
-- get them to a meaningful product action as early as possible;
-- teach features in the context where they become useful rather than front-loading a tour;
-- let experienced users skip explanatory guidance when no safety/setup requirement prevents it;
-- make empty states explain what belongs there and the next useful action;
-- use working examples or realistic previews when they teach the product better than prose;
-- do not block ordinary product access merely to force completion of an educational sequence.
-
-## 10. Use design systems proportionally
-
-A design system is a means of continuing reuse, not a mandatory deliverable.
-
-For ordinary interface work:
-
-- reuse authoritative existing tokens/components/patterns;
-- make the smallest coherent extension needed by the current product;
-- keep one-off exceptions local rather than promoting them into global rules;
-- do not create a new token taxonomy, component library, documentation site, or governance process merely because the surface needs visual consistency.
-
-When the work explicitly concerns or materially requires reusable token architecture, component contracts, themes/modes, extension rules, or system-wide change/deprecation, that deeper decision domain is owned by [design-systems.md](design-systems.md) and routed directly from `SKILL.md`.
-
-## 11. Check coherence before adding detail
-
-Before adding more detail, check:
-
-- Does the direction clearly relate to this product and content?
-- Is the primary task obvious?
-- Are hierarchy and grouping understandable without decoration?
-- Did a generic component pattern replace actual information architecture?
-- Is there one coherent visual language rather than several fashionable ideas?
-- Did a targeted modification accidentally redesign neighboring surfaces?
-- Are real states/content lengths represented?
-- Could one decorative element be removed without losing meaning?
-
-Then polish the remaining system rather than adding novelty for its own sake.
-
-Rendered visual verification, responsive/accessibility checks, interaction behavior, and motion review are owned by [review.md](review.md).
+Refine against the product task: clear hierarchy, coherent expression, realistic content/states and the accepted scope. Remove unhelpful competition before adding detail. A generic component pattern should not substitute for information architecture, and a local correction should not redesign neighboring surfaces. When the requested result is supported, further novelty or visible change is unnecessary.

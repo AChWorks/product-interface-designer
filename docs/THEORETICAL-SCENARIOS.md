@@ -17,7 +17,7 @@ For a semantic change, inspect every scenario whose trigger, owner, evidence ass
 For each relevant scenario, verify:
 
 1. **Should the Skill trigger at all?**
-2. **Which direct runtime references should load?**
+2. **Which references or sections change the current decision, and which remain unnecessary?**
 3. **What facts should be recovered, inferred, asked, or left as assumptions?**
 4. **What decision belongs to Product Interface Designer versus another owner?**
 5. **Should it design, implement, review, or return an interface-decision packet?**
@@ -31,6 +31,7 @@ A scenario fails if the Skill:
 - invents material product/business/brand/platform facts;
 - takes project/platform/repository/release authority;
 - loads unrelated decision domains by default;
+- requires stages, documents or response formats that do not help the requested outcome;
 - claims evidence or correctness it does not have;
 - lets optional aesthetics override stronger constraints or product truth.
 
@@ -46,6 +47,7 @@ A scenario fails if the Skill:
 - Recover product/task/content/incumbent design truth.
 - Infer ordinary reversible layout/visual details rather than asking for a style questionnaire.
 - Implement through the established project mechanism and render/review when available.
+- Account for states required by the accepted flow even if the current UI lacks them; surface unknown product support instead of inventing recovery or silently omitting the state.
 
 **Forbidden:** advice-only output when safe authorized implementation is available; framework replacement merely for visual preference.
 
@@ -61,9 +63,9 @@ A scenario fails if the Skill:
 
 **Prompt shape:** “Improve this settings form; keep the rest of the product as-is.”
 
-**Expected:** preserve current tokens, typography, components, terminology, information architecture, and interaction vocabulary except where the accepted change requires adjustment.
+**Expected:** preserve current tokens, typography, components, terminology, information architecture, and interaction vocabulary except where the accepted change requires adjustment. Deliberate expressive brand choices remain authoritative. Use relevant guidance and verify the affected result; a supported finding that no material change is needed is valid. Reducing visual competition must preserve required alternative actions.
 
-**Forbidden:** opportunistic redesign, rebrand, framework migration, or unrelated polish.
+**Forbidden:** opportunistic redesign, rebrand, framework migration, unrelated polish, or turning a diagnostic example into a universal style ban.
 
 ### D. Explicit redesign
 
@@ -78,7 +80,7 @@ A scenario fails if the Skill:
 **Prompt shape:** “Implement this screenshot as closely as possible.”
 
 **Expected:**
-- Treat observable fidelity as an accepted requirement.
+- Treat observable fidelity, including displayed error/selection or other visible states, as an accepted requirement.
 - Distinguish what the reference actually proves from hidden behavior/data/responsive states.
 - Preserve higher-precedence product/mandatory constraints.
 - Use rendered evidence for material fidelity claims when capability exists.
@@ -107,7 +109,7 @@ A scenario fails if the Skill:
 
 **Expected:** infer reversible spacing, composition, hierarchy, component expression, and minor style choices from product/context evidence.
 
-**Forbidden:** asking the user to choose routine spacing/radius/layout values or interpreting “you decide” as permission to invent business policy, product facts, durable brand identity, or architecture.
+**Forbidden:** asking the user to choose routine spacing/radius/layout values; requiring a direction statement, diagnostic table or narrated passes for every task; interpreting “you decide” as permission to invent business policy, product facts, durable brand identity, or architecture.
 
 ### I. Missing implementation stack: durable product versus disposable prototype
 
@@ -149,7 +151,7 @@ A scenario fails if the Skill:
 
 **Prompt shape:** “Make this complex widget WCAG-compliant” or “match the current native platform behavior.”
 
-**Expected:** use local principles for durable reasoning and retrieve current official authority when exact version-sensitive semantics matter.
+**Expected:** use local principles for durable reasoning and retrieve current official authority when exact version-sensitive semantics matter. A single target platform can require platform guidance without a cross-platform comparison.
 
 **Forbidden:** claiming exact compliance/platform correctness from memory or from a visual render alone.
 
@@ -157,7 +159,7 @@ A scenario fails if the Skill:
 
 **Prompt shape:** dense admin product with search, filters, facets, saved views, multistep navigation, or composite widgets.
 
-**Expected:** load information architecture before styling the structure; use design-core for visual/interaction expression; consult current APG/platform authority for exact complex-widget semantics when material.
+**Expected:** load information architecture before styling the structure; use design-core for visual/interaction expression; consult current APG/platform authority for exact complex-widget semantics when material. Preserve review/edit/back/resume paths while avoiding unnecessary repeated entry of information already held by the product.
 
 **Forbidden:** solving structural findability problems by adding decoration/cards alone.
 
@@ -166,7 +168,7 @@ A scenario fails if the Skill:
 **Prompt shape 1:** “Adjust this button/card on one surface.”
 **Prompt shape 2:** “Redefine tokens, component contracts, themes, and migration rules across products.”
 
-**Expected:** first case reuses current system through design-core; second activates design-system guidance.
+**Expected:** first case reuses current system through design-core; second activates design-system guidance. A task requirement can justify a mechanism change by its owner; a local aesthetic preference alone cannot.
 
 **Forbidden:** creating a token taxonomy/component governance process for a local tweak, or treating true system-wide contract work as local styling.
 
@@ -190,7 +192,7 @@ A scenario fails if the Skill:
 
 **Prompt shape:** interface must preserve task context through resize, split view, fold/posture changes, restore, and pointer/touch/keyboard transitions.
 
-**Expected:** load adaptive-context guidance, plus the actual target platform when exact behavior matters. Adapt from available space/current capabilities rather than device stereotypes.
+**Expected:** load adaptive-context guidance, plus the actual target platform when exact behavior matters. Adapt from available space/current capabilities rather than device stereotypes. A required action has an alternative when another supported input cannot perform its drag/gesture interaction, unless that interaction is essential to the task.
 
 **Forbidden:** hard-coding “tablet/desktop” assumptions that ignore actual window/input state.
 
@@ -198,7 +200,7 @@ A scenario fails if the Skill:
 
 **Prompt shape:** user provides one screenshot and asks whether the interface is good; no source/runtime access exists.
 
-**Expected:** load review guidance; make only claims supported by that screenshot and label missing responsive/interaction/state evidence where material.
+**Expected:** load review guidance; use the screenshot as rendered visual evidence for the displayed state even without interaction access. Make only claims it supports and label missing responsive/interaction/state evidence where material.
 
 **Forbidden:** claiming the whole system, accessibility, responsiveness, or interaction behavior is validated by one screenshot.
 
@@ -208,7 +210,7 @@ A scenario fails if the Skill:
 
 **Expected:** load trust/agency; add human factors when comprehension/error/recovery risk is material. Expose consequences and reversal/recovery honestly while leaving legal/security/privacy policy to its owner.
 
-**Forbidden:** coercive hierarchy, hidden consequences, or inventing policy.
+**Forbidden:** coercive hierarchy, hidden consequences, inventing policy, or treating recurring product behavior as deceptive merely because it recurs rather than judging disclosure and choice.
 
 ### U. Multi-platform product
 
@@ -222,7 +224,7 @@ A scenario fails if the Skill:
 
 **Prompt shape:** a project Master owns delivery and consults Product Interface Designer for a material interface decision or review.
 
-**Expected:** load composition; receive minimum context; return Intent, Decision, Constraints, Implementation latitude, Evidence, Open assumptions; control then returns to the Master or its assigned implementation/platform owner. If Product Interface Designer also has write capability, composed consultation/review still returns the decision/findings instead of treating capability as authority to mutate the repository.
+**Expected:** load composition; receive minimum context; return the needed canonical packet information (Intent, Decision, Constraints, Implementation latitude, Evidence, Open assumptions), reusing known context and omitting empty fields; control then returns to the Master or its assigned implementation/platform owner. If Product Interface Designer also has write capability, composed consultation/review still returns the decision/findings instead of treating capability as authority to mutate the repository.
 
 **Forbidden:** creating a competing roadmap, changing repository scope, taking CI/integration/release ownership, or implementing fixes during composed consultation merely because write capability is available.
 
@@ -230,9 +232,9 @@ A scenario fails if the Skill:
 
 **Prompt shape:** material interface work inside a WordPress project, whether WP Native Builder or Product Interface Designer is active first.
 
-**Expected:** Product Interface Designer owns user-facing interface intent/critique; WP Native Builder owns WordPress mechanism, Gutenberg/theme/plugin/WooCommerce lifecycle, publication, and live implementation safety. A WP-first unresolved interface question returns one decision packet and control to the WordPress owner. A PID-first flow hands off when WordPress mechanism/lifecycle work begins, and WP Native Builder reuses the still-valid packet rather than creating a reciprocal loop. Block/mechanism/CSS/tool/transport choices and ordinary implementation defects do not invalidate the interface decision. Re-review occurs only when material product/design/target/evidence changes or rendered evidence creates a genuinely material interface/fidelity question; pass only the changed evidence/constraint and exact question. Durable accepted interface conclusions reconcile into the project's existing source of truth rather than a composition log.
+**Expected:** Product Interface Designer owns user-facing interface intent/critique; WP Native Builder owns WordPress mechanism, Gutenberg/theme/plugin/WooCommerce lifecycle, publication, and live implementation safety. A WP-first unresolved interface question returns one decision packet and control to the WordPress owner. A PID-first flow hands off when WordPress mechanism/lifecycle work begins, and WP Native Builder reuses the still-valid packet rather than creating a reciprocal loop. Block/mechanism/CSS/tool/transport choices and ordinary implementation defects do not invalidate the interface decision. Re-consult when changed facts/evidence or a distinct question requires material interface judgment, or when specialist review is explicitly requested. An explicit review may revisit the same artifact without invalidating still-valid decisions. Pass the precise question and only new or missing relevant context. Durable accepted interface conclusions reconcile into the project's existing source of truth rather than a composition log.
 
-**Forbidden:** Product Interface Designer prescribing brittle WordPress internals merely to force presentation, reciprocal PID -> WP -> PID invocation without a changed interface question, automatic re-review after every render, or mechanism-only changes invalidating a still-valid interface decision.
+**Forbidden:** Product Interface Designer prescribing brittle WordPress internals merely to force presentation, automatic reciprocal PID -> WP -> PID invocation without a new material question or explicit review request, automatic re-review after every render, or mechanism-only changes invalidating a still-valid interface decision.
 
 ### X. Idea Advisor composition
 
@@ -240,11 +242,13 @@ A scenario fails if the Skill:
 
 **Discovery guard:** metadata/entrypoint wording must not exclude this composition merely because the caller owns advisory reasoning rather than implementation/delivery.
 
-**Expected A:** load composition; receive only minimum decision-relevant context; own the concrete interface decision/review; return Intent, Decision, Constraints, Implementation latitude, Evidence, Open assumptions; then return control to Idea Advisor's advisory workflow rather than jumping to execution.
+**Expected A:** load composition; receive only minimum decision-relevant context; own the concrete interface decision/review; return the needed canonical packet information; then return control to Idea Advisor's advisory workflow rather than jumping to execution.
 
 **Prompt shape B:** Product Interface Designer exploration exposes a material whether/why question, unresolved actual user/outcome, product scope/value question, product capability reuse question, product-local/Foundation/project placement question, or another strategic product boundary.
 
 **Expected B:** return that question to Idea Advisor/caller; only continue interface decisions once enough product truth exists; do not bounce the unchanged question recursively.
+
+**Re-entry:** a resolved returned product assumption or a distinct material interface question can justify another bounded consultation even without a new render. Keep strategic resolution with the advisor and reuse still-valid interface conclusions.
 
 **Reuse edge case:** “Should this screen reuse the existing component/design-system pattern or introduce a new interface component?” remains a Product Interface Designer decision when it is an interface/design-system question; the word “reuse” alone does not route it to Idea Advisor.
 

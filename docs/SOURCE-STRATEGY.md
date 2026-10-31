@@ -120,3 +120,11 @@ Re-audit a source only when:
 - a real design gap appears that current synthesis does not cover.
 
 Do not update source pins merely because an upstream branch moved.
+
+## Later conceptual review
+
+On 2026-10-31, reviewed `heydamir/unslop@4652254daff586ff4739849395a127b56f7f8cc7`: `skills/unslop/SKILL.md`, its five references, helpers and visual examples. The repository declares CC BY 4.0, with attribution to Damir Sokolovsky.
+
+The useful input is the connection between an observable interface problem, a concrete correction and evidence of the result. Product-derived direction, preservation of good existing design and product-specificity checks already had local owners; refine them rather than add parallel rules.
+
+Do not import its fixed visual prescriptions, pass order, required output/approval pauses, render limit, scripts or video workflow. The local revision is original synthesis within the existing canonical owners. No upstream text, code or images are retained, and the direct-import policy above continues to govern any future adaptation.

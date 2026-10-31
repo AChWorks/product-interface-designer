@@ -67,7 +67,7 @@ Useful context includes the user/product outcome, target surface/platform, exist
 
 [`SKILL.md`](SKILL.md) is the compact control plane. It establishes the interface problem, preserves accepted product/design truth, resolves constraint precedence, and routes only to the reference domains that materially apply.
 
-Detailed guidance lives under [`references/`](references/) and is progressively loaded only when relevant. This keeps the active context smaller while still supporting domains such as design systems, human factors, information architecture, internationalization, Persian/RTL, platform behavior, trust/agency, collaboration, adaptive contexts, AI-mediated interfaces, and interface review.
+Detailed guidance lives under [`references/`](references/). The agent selects the references and sections that change the current decision, with ordinary execution details left to professional judgment. This preserves specialized support for design systems, human factors, information architecture, localization, Persian/RTL, platforms, trust/agency, collaboration, adaptive contexts, AI-mediated interfaces, and review without requiring every domain for every task.
 
 Version-sensitive platform or standards behavior is not frozen into the Skill when a current authoritative source should own the exact rule.
 

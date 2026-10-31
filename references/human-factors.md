@@ -1,151 +1,52 @@
 # Human Factors and Usability Evidence
 
-Use this reference when the interface decision materially depends on how people understand, learn, remember, predict, recover from, or complete an interaction — especially for novel, complex, repeated, high-consequence, or error-prone tasks.
-
-This file owns human-factors reasoning and usability-evidence confidence. Detailed visual QA, accessibility conformance checks, information architecture, platform mechanics, and research operations belong to their own owners.
+Use this depth for a material question about understanding, learning, memory, error or task completion. Familiar, reversible, low-consequence interactions can use ordinary design and review. Novel models, compounded repeated friction, interruption, stress or costly mistakes warrant closer scrutiny.
 
 ## Contents
 
-[Trigger](#1-decide-whether-human-factors-depth-is-needed) · [Mental models](#2-fit-the-users-mental-model) · [Memory/load](#3-reduce-unnecessary-memory-and-attention-load) · [Control/recovery](#4-make-control-and-recovery-visible) · [Help/disclosure](#5-use-help-and-progressive-disclosure-to-reduce-burden) · [Task outcome](#6-design-for-task-completion-not-interface-polish) · [Evidence](#7-separate-hypotheses-from-evidence) · [Prototype fidelity](#match-prototype-fidelity-to-the-question) · [Uncertainty](#8-handle-usability-uncertainty-proportionally)
+[Mental model](#predictability-and-task-context) · [Recovery/help](#control-recovery-and-help) · [Evidence](#usability-evidence) · [Fidelity](#prototype-fidelity) · [Uncertainty](#proportional-uncertainty)
 
-## 1. Decide whether human-factors depth is needed
+## Predictability and task context
 
-Do not turn every interface change into a research program.
+Use domain language and mappings users can predict, with consistent concepts and visible cause/effect. Preserve useful transfer from established patterns. A backend model is not automatically the user's mental model; introduce unfamiliar concepts progressively. Controls that look alike should not conceal materially different behavior.
 
-Use ordinary design/review guidance when the interaction is familiar, low-consequence, reversible, and well supported by current product/platform patterns.
+Prefer recognition to recall. Keep choices, constraints, prior selections and comparison information available where decisions depend on them. Preserve valid work and orientation across errors, navigation or interruption when product rules allow. Chunk work only when it helps the task; hiding essential context or adding steps can increase burden despite a cleaner screen.
 
-Increase human-factors scrutiny when one or more are material:
+Defaults, recent values, autofill and suggestions help when trustworthy and controllable. After state changes, make the current status and next meaningful action understandable without reconstructing the whole history. Evaluate completion, failure and resumption, not just the appearance of one screen.
 
-- users must learn a new interaction model or unusual control;
-- the task has many steps, states, choices, dependencies, or interruptions;
-- users must remember information across screens or time;
-- mistakes are costly, difficult to detect, or difficult to reverse;
-- the interface is used frequently enough that small friction compounds;
-- users may be under time pressure, stress, distraction, or low familiarity;
-- success depends on discovering hidden actions or interpreting unfamiliar system state;
-- current evidence shows abandonment, repeated errors, support burden, or confusion;
-- a polished/rendered interface still leaves uncertainty about whether people can complete the task.
+## Control, recovery and help
 
-A novel interaction is a design hypothesis until evidence justifies stronger confidence.
+Make action effects stable and explainable. Prevent avoidable errors through appropriate constraints and sequencing, then preserve valid work and expose useful cancel, edit, back, retry or undo paths when the product supports them. Consequential actions need understandable scope and an appropriate commitment/recovery model, not confirmation for every action.
 
-## 2. Fit the user's mental model
+Place help where it changes the next action; keep recurring help discoverable. Reveal advanced detail without hiding required information or making the capability undiscoverable when needed. Explain a genuinely new control near first use, but prefer an established one when novelty adds no value. Tours should not compensate for unclear everyday controls or repeatedly obstruct experienced users.
 
-Prefer mappings, terminology, ordering, and behavior that users can predict from the product/domain/platform context.
+## Usability evidence
 
-- Use the language users need for the task; do not make them translate internal system architecture into actions.
-- Keep the same concept named and represented consistently unless a real distinction exists.
-- Make cause and effect legible: users should be able to tell what an action applies to and what changed.
-- Preserve useful transfer from established product/platform patterns instead of inventing new behavior for novelty.
-- When the product must introduce a new concept, expose enough explanation/state to build the model progressively rather than requiring users to infer it all at once.
-- Avoid visually identical controls with materially different behavior or different-looking controls with the same role unless the distinction helps the task.
+[review.md](review.md) owns static, rendered, measured and assistive review evidence. For usability claims, retain these distinctions:
 
-Do not assume the implementation model is the user mental model.
+| Evidence | Confidence boundary |
+| --- | --- |
+| Product facts and reasoned design hypothesis | Establish context or a prediction, not observed task success |
+| Rendered/interaction or measured accessibility evidence | Establish the exercised behavior/properties, not representative users' understanding |
+| Funnels, errors, support reports or abandonment | Reveal observed behavior/problems, not necessarily their cause |
+| Actual user/task observations | Support conclusions about the tested participants, tasks and context, not untested populations or universal usability |
 
-## 3. Reduce unnecessary memory and attention load
+A novel interaction remains a hypothesis without relevant evidence. Preference polling does not substitute for task observation when completion is the question; visual polish does not establish usability.
 
-Prefer recognition and visible context over recall when the task permits it.
+## Prototype fidelity
 
-- Keep relevant choices, state, constraints, and prior selections visible near the decision they affect.
-- Preserve entered work and task context across recoverable errors, navigation, refresh, or interruption when product rules allow it.
-- Break long or complex work into meaningful chunks only when the grouping helps orientation; do not fragment a simple task into needless steps.
-- Keep important comparison information simultaneously available when forcing users to remember it would increase error or effort.
-- Use defaults, recent values, suggestions, autofill, and summaries only when they are trustworthy and do not remove meaningful user control.
-- Avoid simultaneous competing demands for attention; motion, alerts, secondary actions, and dense detail should not obscure the current task.
-- Re-orient users after state changes: make current location/status and the next meaningful action understandable without reconstructing the whole history.
+Use the smallest fidelity that makes the actual uncertainty observable.
 
-Do not hide essential task context behind progressive disclosure merely to make the surface look simpler.
+| Question | Needed fidelity |
+| --- | --- |
+| Structure, sequencing, labels or broad task flow | Rough wireflow or minimally interactive prototype may suffice |
+| Hierarchy, density, typography, wrapping, brand or reference fidelity | Enough visual/content fidelity to judge those properties |
+| Timing, focus/keyboard, motion, adaptive transitions, device/input or assistive behavior | Functional/platform fidelity sufficient to exercise the behavior |
 
-## 4. Make control and recovery visible
+Add realistic content and state complexity when it can change the answer. More polish is not stronger evidence by itself; a static mock cannot establish an interaction.
 
-Predictability and recoverability reduce both error cost and learning burden.
+## Proportional uncertainty
 
-- The same action in the same state should have a stable, explainable effect.
-- Show material system state and action feedback close enough to the action for users to connect cause and effect.
-- Preserve a clear way to cancel, go back, edit, retry, or undo when the product can safely support it.
-- For consequential actions, make scope/consequence understandable before commitment and provide the appropriate confirmation or recovery path.
-- Prevent avoidable errors through constraints, sensible sequencing, and clear expectations before relying on error messages.
-- When an error occurs, preserve valid work, identify what needs attention, and make recovery actionable.
-- Avoid dead ends that force users to restart a task merely because the interface lost state or hid the recovery route.
+Identify the decision-sensitive assumption. Use stronger evidence when it could materially change that decision, choosing the cheapest credible source: existing product behavior, support/analytics, a prototype/task observation or suitable research. This does not make research a prerequisite for ordinary work.
 
-Exact accessibility/legal requirements for errors, help, timing, or confirmations come from the current authoritative owner when material.
-
-## 5. Use help and progressive disclosure to reduce burden
-
-Help should appear where it can change the user's next action.
-
-- Prefer clear labels, examples, constraints, and inline explanations over forcing users to consult distant documentation for ordinary tasks.
-- Keep repeated help discoverable in a stable place.
-- Reveal advanced or infrequent detail progressively when doing so reduces distraction without hiding required information.
-- Explain non-standard controls close to first use; prefer established controls when novelty adds no product value.
-- Use onboarding only for knowledge users cannot reasonably infer at the moment of need. Do not use a tour to compensate for unclear everyday controls.
-- Let experienced users proceed without repeatedly dismissing beginner guidance where practical.
-
-Progressive disclosure is successful only when users can still discover the hidden capability at the time they need it.
-
-## 6. Design for task completion, not interface polish
-
-Evaluate the whole task path, including failure and resumption.
-
-Ask:
-
-- Can the user tell what outcome this surface supports?
-- Can they find the next meaningful action without guessing?
-- Can they understand enough state to make the decision?
-- What happens after interruption, validation failure, partial success, timeout, or a changed external state?
-- Can they recover without unnecessary re-entry or support?
-- Does the interface help users reach the actual product outcome, or merely make an intermediate screen look clean?
-
-A visually coherent screen can still be usability-uncertain when these questions are unresolved.
-
-## 7. Separate hypotheses from evidence
-
-Use evidence only for the claim it can support. [review.md](review.md) owns how static, rendered, measured, and assistive interface-review evidence is obtained and judged; this section owns only what those evidence types do or do not justify about usability confidence.
-
-| Evidence type | What it can support | What it does not prove by itself |
-|---|---|---|
-| **Product facts** | accepted users/tasks/business rules/current behavior | that a proposed interaction is understandable or usable |
-| **Design hypothesis** | a reasoned prediction about what should work | any observed user outcome |
-| **Static source/design evidence** | intended structure, states, labels, implementation logic | rendered behavior or user task success |
-| **Rendered/interaction evidence** | actual visual/state/interaction behavior in the exercised conditions | that representative users understand or complete the task |
-| **Measured/accessibility evidence** | the specific automated/manual/assistive/performance properties actually measured | broad usability outside the measurement |
-| **Behavioral/operational evidence** | observed funnels, errors, support tickets, abandonment, repeated actions | why users behaved that way without additional evidence |
-| **User/task evidence** | what observed participants/users did, understood, failed, or recovered from for the tested tasks/context | untested populations, tasks, environments, or universal usability |
-
-Never say an interface was user-tested, validated with users, or proven usable unless corresponding user/task evidence actually exists.
-
-Do not treat preference polling as equivalent to observing task behavior when the decision is about task completion.
-
-## 8. Handle usability uncertainty proportionally
-
-### Match prototype fidelity to the question
-
-Prototype fidelity is an evidence choice, not a quality score. Use the smallest fidelity that makes the decision-sensitive uncertainty observable.
-
-- For information architecture, sequencing, labeling, or broad task-flow questions, a rough wireflow or minimally interactive prototype may provide stronger signal than polished visual detail.
-- For hierarchy, density, typography, copy wrapping, brand expression, or reference-fidelity questions, include enough visual fidelity for those properties to be judged.
-- For interaction timing, focus/keyboard behavior, motion, responsive/adaptive transitions, device/input behavior, or assistive-technology questions, use enough functional/platform fidelity to exercise the behavior rather than relying on a static mock.
-- Add realistic content/state complexity when it can change the answer; do not add polish that cannot.
-- Do not treat high visual fidelity as stronger usability evidence by itself. A polished prototype remains a hypothesis until the relevant task/user evidence exists.
-
-Use this decision flow:
-
-```text
-Is the interaction conventional, low-consequence, reversible, and well-supported?
-  ├─ yes -> use established patterns + proportional review; no research ceremony
-  └─ no  -> identify the decision-sensitive usability hypothesis
-            -> can stronger task evidence materially change the decision?
-                 ├─ no -> proceed with the safer/conventional/reversible choice
-                 └─ yes -> use the cheapest credible evidence that answers that question
-                           (prototype/task observation, existing product behavior,
-                            support/analytics evidence, or other suitable research)
-```
-
-When direct user-research capability is unavailable:
-
-- do not fabricate user evidence or block ordinary work automatically;
-- prefer familiar, reversible, clearly signposted interaction;
-- reduce novelty and error cost where doing so preserves the product outcome;
-- label the material usability assumption in the interface-decision packet;
-- recommend the specific task/question that stronger evidence should test, not a generic request to “do user research.”
-
-Escalate only when the unresolved usability assumption materially changes product risk, accepted behavior, or another owner's decision boundary.
+When direct user evidence is unavailable, continue with familiar, reversible, clearly signposted interaction and lower error cost where compatible with the outcome. State only the material assumption and the specific task/question future evidence should resolve. Return an unresolved choice to its owner only when it changes accepted product behavior, material risk or that owner's boundary.

@@ -25,7 +25,7 @@ The Skill should help an AI make better UI/UX decisions, not merely apply visual
 - treat Persian/RTL as a first-class conditional specialization within a broader internationalization model;
 - compose cleanly with project-management and platform-specialist Skills without becoming a second project manager or implementation owner.
 
-The goal is **better interface judgment with less ambiguity and less duplicated instruction**, not more rules.
+The goal is **better interface judgment with less ambiguity and less duplicated instruction**. Assume a capable AI: specify outcomes, decision-changing constraints, important exceptions and sufficient evidence while leaving ordinary execution details to professional judgment. Instruction length or process compliance is not a substitute for a useful interface result.
 
 ## 2. Supported work
 
