@@ -26,6 +26,6 @@ Restore only state the product can still validate. If staleness, permission chan
 
 Actual input capability can change while the product remains open; viewport size does not establish it. Required actions need a usable path for the inputs the product supports, with pointer/touch efficiency and logical keyboard focus as regions move.
 
-Hover can enrich but cannot carry essential information when other supported inputs need it. Provide alternatives to drag/drop or gestures when another supported input cannot perform them; introduce pen, remote/gamepad or other behavior only when supported and useful. Use reliable platform signals for input hints rather than guessing from a device category.
+Hover can enrich but cannot carry essential information when other supported inputs need it. Provide an alternative when another supported input cannot perform a drag or gesture, unless that interaction is essential to the task; introduce pen, remote/gamepad or other behavior only when supported and useful. Use reliable platform signals for input hints rather than guessing from a device category.
 
 When continuity is impossible or unsafe, make that limitation and the next useful action clear instead of pretending the previous interaction remains valid.

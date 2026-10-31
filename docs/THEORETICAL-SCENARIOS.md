@@ -192,7 +192,7 @@ A scenario fails if the Skill:
 
 **Prompt shape:** interface must preserve task context through resize, split view, fold/posture changes, restore, and pointer/touch/keyboard transitions.
 
-**Expected:** load adaptive-context guidance, plus the actual target platform when exact behavior matters. Adapt from available space/current capabilities rather than device stereotypes. A required drag/gesture action remains reachable when another supported input cannot perform it.
+**Expected:** load adaptive-context guidance, plus the actual target platform when exact behavior matters. Adapt from available space/current capabilities rather than device stereotypes. A required action has an alternative when another supported input cannot perform its drag/gesture interaction, unless that interaction is essential to the task.
 
 **Forbidden:** hard-coding “tablet/desktop” assumptions that ignore actual window/input state.
 
